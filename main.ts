@@ -6,3 +6,8 @@ const router = new Router();
 router.get("/", (context) => {
     context.response.body = Deno.env.get("URL");
 })
+
+app.use(router.routes());
+app.use(router.allowedMethods());
+
+await app.listen({ port: 8000 });
